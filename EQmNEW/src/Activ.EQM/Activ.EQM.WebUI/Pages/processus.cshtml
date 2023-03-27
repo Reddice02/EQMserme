@@ -1,0 +1,209 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.processusModel
+
+@{
+    ViewData["Title"] = "Processus page";
+}
+<link rel="stylesheet" type="text/css" href="~/vendors/styles/core.css">
+<link rel="stylesheet" type="text/css" href="~/vendors/styles/icon-font.min.css">
+<link rel="stylesheet" type="text/css" href="~/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="~/src/plugins/datatables/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="~/vendors/styles/style.css">
+
+
+@section scripts {
+    <script type="text/javascript" src="~/js/Script.js"></script>
+    <script >
+        /*!
+ Print button for Buttons and DataTables.
+ 2016 SpryMedia Ltd - datatables.net/license
+*/
+(function(c){"function"===typeof define&&define.amd?define(["jquery","datatables.net","datatables.net-buttons"],function(e){return c(e,window,document)}):"object"===typeof exports?module.exports=function(e,a){e||(e=window);a&&a.fn.dataTable||(a=require("datatables.net")(e,a).$);a.fn.dataTable.Buttons||require("datatables.net-buttons")(e,a);return c(a,e,e.document)}:c(jQuery,window,document)})(function(c,e,a,q){var k=c.fn.dataTable,d=a.createElement("a"),p=function(b){d.href=b;b=d.host;-1===b.indexOf("/")&&
+0!==d.pathname.indexOf("/")&&(b+="/");return d.protocol+"//"+b+d.pathname+d.search};k.ext.buttons.print={className:"buttons-print",text:function(b){return b.i18n("buttons.print","Print")},action:function(b,a,d,g){b=a.buttons.exportData(c.extend({decodeEntities:!1},g.exportOptions));d=a.buttons.exportInfo(g);var k=a.columns(g.exportOptions.columns).flatten().map(function(b){return a.settings()[0].aoColumns[a.column(b).index()].sClass}).toArray(),m=function(b,a){for(var d="<tr>",c=0,e=b.length;c<e;c++)d+=
+"<"+a+" "+(k[c]?'class="'+k[c]+'"':"")+">"+(null===b[c]||b[c]===q?"":b[c])+"</"+a+">";return d+"</tr>"},h='<table class="'+a.table().node().className+'">';g.header&&(h+="<thead>"+m(b.header,"th")+"</thead>");h+="<tbody>";for(var n=0,r=b.body.length;n<r;n++)h+=m(b.body[n],"td");h+="</tbody>";g.footer&&b.footer&&(h+="<tfoot>"+m(b.footer,"th")+"</tfoot>");h+="</table>";var f=e.open("","");f.document.close();var l="<title>"+d.title+"</title>";c("style, link").each(function(){var b=l,a=c(this).clone()[0];
+"link"===a.nodeName.toLowerCase()&&(a.href=p(a.href));l=b+a.outerHTML});try{f.document.head.innerHTML=l}catch(t){c(f.document.head).html(l)}f.document.body.innerHTML="<h1>"+d.title+"</h1><div>"+(d.messageTop||"")+"</div>"+h+"<div>"+(d.messageBottom||"")+"</div>";c(f.document.body).addClass("dt-print-view");c("img",f.document.body).each(function(b,a){a.setAttribute("src",p(a.getAttribute("src")))});g.customize&&g.customize(f,g,a);b=function(){g.autoPrint&&(f.print(),f.close())};navigator.userAgent.match(/Trident\/\d.\d/)?
+b():f.setTimeout(b,1E3)},title:"*",messageTop:"*",messageBottom:"*",exportOptions:{},header:!0,footer:!1,autoPrint:!0,customize:null};return k.Buttons});
+
+    </script>
+     
+}
+
+<!--<script>
+
+    function modifier(id){
+        sessionStorage.setItem("modif", id);
+        location.replace('https://localhost:7135/editprocessus');
+    }
+
+    function detail(id) {
+        sessionStorage.setItem("detail", id);
+        location.replace('https://localhost:7135/detailprocessus');
+    }
+
+    function supprimer(_url,id){
+        sessionStorage.setItem("supp", id);
+        let choix = confirm("Voulez vous vraiment supprimer cet élement ?");
+
+        console.log(_url,id);
+
+        if (choix) {
+            fetch(_url + "/" + id, {
+                method: 'DELETE'
+            });
+            alert("Cet élément a été supprimé ");
+            location.replace('https://localhost:7135/processus');
+        }
+        else {
+            alert("la suppression a été annulée");
+        }
+    }
+</script>-->
+
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="title">
+                   
+                </div>
+                <nav aria-label="breadcrumb" role="navigation">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Accueil</li>
+                        <li class="breadcrumb-item active" aria-current="page">Creation de processus</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-6 col-sm-12 text-right">
+                <div class="dropdown">
+                    <a asp-area="" asp-page="/ajoutprocessus" class="btn btn-primary btn-sm" function=javascript:; role="button">
+                        Ajouter
+                    </a>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-box mb-30">
+        <div class="pd-20">
+            <h4 class="text-blue h4">Processus</h4>
+           
+        </div>
+        <div class="pb-20">
+            <table class="table hover multiple-select-row data-table-export nowrap">
+                <thead>
+								<tr>
+                        <th class="table-plus datatable-nosort">Titre</th>
+						<th>Description</th>
+                        <th>Participants</th>
+                        <th>Manager</th>
+                        <th>Date de creation</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+                <tbody id="corps">
+								<script type="text/javascript">
+                                    let infos = '';
+                                    fetch('http://localhost:5000/Process')
+                                        .then(res => res.json())
+                                        .then(data => {
+                                            console.log(data);
+                                            for (let item of data) {
+                                                infos += `<tr><td>${item.title}</td><td>${item.description}</td><td>${item.participants}</td><td>${item.manager}</td><td>${item.created}</td><td><button Onclick="detail(${item.processId},'detailprocessus')" class="btn btn-light">Détail</button>&nbsp;<button class="btn btn-warning" Onclick="modifier(${item.processId},'editprocessus')">Modifier</button>&nbsp;<button class="btn btn-danger" Onclick="supprimer('http://localhost:5000/Process',${item.processId},'processus')">Supprimer</button></td></tr>`;
+                                            }
+                                            document.getElementById('corps').innerHTML = infos;
+                                            //place.innerHTML = infos;
+                                        });
+                                </script>
+                    <tr>
+                        <td>
+                            <div class="dropdown">
+                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                    <i class="dw dw-more"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                    <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
+                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="dropdown">
+                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                    <i class="dw dw-more"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                    <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
+                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="dropdown">
+                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                    <i class="dw dw-more"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                    <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+                                    <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
+                                    <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                         <tr>
+                <td>
+                    <div class="dropdown">
+                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                            <i class="dw dw-more"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                            <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+                            <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
+                            <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+                        </div>
+                    </div>
+                </td>
+                        </tr>
+                             <tr>
+                <td>
+                    <div class="dropdown">
+                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                            <i class="dw dw-more"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                            <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+                            <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
+                            <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+                        </div>
+                    </div>
+                </td>
+                        </tr>
+                             <tr>
+                <td>
+                    <div class="dropdown">
+                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                            <i class="dw dw-more"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                            <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+                            <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
+                            <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+                        </div>
+                    </div>
+                </td>
+                        </tr>
+                </tbody>
+						</table>
+					</div>
+				</div>
+    
+				<!-- Export Datatable End -->
+			
+    <!-- js -->
+    
+    

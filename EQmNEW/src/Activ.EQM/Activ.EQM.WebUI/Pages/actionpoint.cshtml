@@ -1,0 +1,57 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.actionpointModel
+@{
+    ViewData["Title"] = "Action Point page";
+}
+
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Accueil</li>
+                    <li class="breadcrumb-item active" aria-current="page">Plan d'action</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-md-6 col-sm-12 text-right">
+            <div class="dropdown">
+                <a asp-area="" asp-page="/ajoutactionpoint" class="btn btn-primary btn-sm" function=javascript:; role="button">
+                    Ajouter
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-box mb-30">
+    <div class="pd-20">
+        <h4 class="text-blue h4">Action point</h4>
+    </div>
+    <div class="pb-20">
+        <table class="table hover multiple-select-row data-table-export nowrap">
+            <thead>
+                <tr>
+                    <th class="table-plus datatable-nosort">Titre</th>
+                    <th>Description</th>
+                    <th>Creer par</th>
+                    <th>Audit</th>
+                    <th>Nature</th>
+                    <th>Processus tiers</th>
+                    <th >Niveau du point d'action</th>
+                    <th >Priorité des points d'action</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="corps">
+                <script type="text/javascript">
+                 
+                </script>
+
+            </tbody>
+        </table>
+    </div>
+</div>

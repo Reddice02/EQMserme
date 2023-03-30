@@ -3,12 +3,39 @@
 @{
     ViewData["Title"] = " Ajout Point Nature page";
 }
+
 @section scripts {
-    <script type="text/javascript" src="~/js/Script.js"></script>
+
     <script type="text/javascript">
+
+        function ajouter() {
+
+
+            var t = document.getElementById("titre").value;
+            var create = document.getElementById("created").value;
+
+            var data = {
+                Title: t,
+                CreateBy: create
+            }
+
+            console.log(data);
+
+            fetch('http://localhost:5000/ActionPointNature', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            alert("Enregistrement reussi !");
+            location.replace('https://localhost:7135/pointnature');
+
+        }
 
     </script>
 }
+
     <!-- Default Basic Forms Start -->
     <div class="pd-20 card-box mb-30">
         <div class="clearfix">
@@ -34,7 +61,7 @@
             </div>
          
             <div class="text-center">
-                <a class="btn btn-primary btn-sm  " asp-area="" asp-page="/ajoutpointnature" role="button">Ajouter</a>
+                <button type="reset" class="btn btn-danger btn-sm">Annuler</button>
                 <button type="button" onclick="ajouter();" class="btn btn-primary btn-sm">Enregistrer</button>
             </div>
 

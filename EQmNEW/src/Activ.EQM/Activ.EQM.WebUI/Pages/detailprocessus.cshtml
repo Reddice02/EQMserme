@@ -24,26 +24,26 @@
 											<script type="text/javascript">
 
 												var identifiant = sessionStorage.getItem("detail");
-												let titre = '';
-												let Description = '';
-												let TurnaroundTimes = 0;
-												let Participants = '';
-												let ThirdPartyProcesses = '';
-												let Manager = '';
-												let Created = '';
+												let titre ;
+												let Description ;
+												let TurnaroundTimes ;
+												let Participants ;
+												let ThirdPartyProcesses ;
+												let Manager ;
+												let Created ;
 
 												fetch('http://localhost:5000/Process/' + identifiant)
 													.then(res => res.json())
 													.then(data => {
 														console.log(data);
 														console.log(data.title);
-														titre += `${data.title}`;
-														Description += `${data.Description}`;
-														TurnaroundTimes += `${data.TurnaroundTimes}`;
-														Participants += `${data.Participants}`;
-														ThirdPartyProcesses += `${data.ThirdPartyProcesses}`;
-														Manager += `${data.Manager}`;
-														Created += `${data.Created}`;
+														titre = `${data.title}`;
+														Description = `${data.description}`;
+														TurnaroundTimes = `${data.turnaroundTimes}`;
+														Participants = `${data.participants}`;
+														ThirdPartyProcesses = `${data.thirdPartyProcesses}`;
+														Manager = `${data.manager}`;
+														Created = `${data.created}`;
 
 														//console.log(titre);
 
@@ -103,7 +103,7 @@
 						</div>
 						     <div class="text-center">
 
-        <button type="button" onclick="retour('processus');" class="btn btn-primary btn-sm">Modifier</button>
+								<button type="button" onclick="retour('processus');" class="btn btn-danger btn-sm">Retour</button>
                                 </div>
 							
 </form>

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ThvrQtz7/0UM+b8rrA6pzJFbo09vWDMc/89zh9gaAtKCn56cFB6nhWOwJCFsstIDvTAE8fFpq5YzjMCrMlAwwg==",
+  "dgSpecHash": "Sy2yd7MjdaXEXodAwtdvFMsmsy9QGtnzLBZ+frb5oX+DNRRkxWLL0leiTS26I/KGCAOJApbCFFd6dKDCECEH2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\maria\\source\\repos\\EQmNEW\\src\\Activ.EQM\\Activ.EQM.WebUI\\Activ.EQM.WebUI.csproj",
+  "projectFilePath": "D:\\source\\repos\\EQMserme\\EQmNEW\\src\\Activ.EQM\\Activ.EQM.WebUI\\Activ.EQM.WebUI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\maria\\.nuget\\packages\\razorjs\\0.4.3\\razorjs.0.4.3.nupkg.sha512"
+    "C:\\Users\\activ\\.nuget\\packages\\razorjs\\0.4.3\\razorjs.0.4.3.nupkg.sha512"
   ],
   "logs": [
     {

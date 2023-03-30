@@ -124,3 +124,17 @@ C:\Users\maria\source\repos\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\n
 C:\Users\maria\source\repos\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\Activ.EQM.DataAcces.pdb
 C:\Users\maria\source\repos\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\Activ.EQM.DataAcces.genruntimeconfig.cache
 C:\Users\maria\source\repos\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\ref\Activ.EQM.DataAcces.dll
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\bin\Debug\net6.0\Activ.EQM.DataAcces.deps.json
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\bin\Debug\net6.0\Activ.EQM.DataAcces.runtimeconfig.json
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\bin\Debug\net6.0\Activ.EQM.DataAcces.dll
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\bin\Debug\net6.0\Activ.EQM.DataAcces.pdb
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\Activ.EQM.DataAcces.csproj.AssemblyReference.cache
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\Activ.EQM.DataAcces.GeneratedMSBuildEditorConfig.editorconfig
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\Activ.EQM.DataAcces.AssemblyInfoInputs.cache
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\Activ.EQM.DataAcces.AssemblyInfo.cs
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\Activ.EQM.DataAcces.csproj.CoreCompileInputs.cache
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\Activ.EQM.DataAcces.dll
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\refint\Activ.EQM.DataAcces.dll
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\Activ.EQM.DataAcces.pdb
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\Activ.EQM.DataAcces.genruntimeconfig.cache
+D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.DataAcces\obj\Debug\net6.0\ref\Activ.EQM.DataAcces.dll

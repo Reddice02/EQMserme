@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6YLuvKYuV3P98JjILSlqW4hfs8Wmccb9JD0dAoeJJBI=",
+  "Hash": "23tlJQ/pR3leZYMrifuMYPN0JOfEi+uyzaBpavkrdU0=",
   "Source": "Activ.EQM.WebUI",
   "BasePath": "_content/Activ.EQM.WebUI",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\source\\repos\\EQMserme\\EQmNEW\\src\\Activ.EQM\\Activ.EQM.WebUI\\wwwroot\\js\\Script.js",
+      "SourceId": "Activ.EQM.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\source\\repos\\EQMserme\\EQmNEW\\src\\Activ.EQM\\Activ.EQM.WebUI\\wwwroot\\",
+      "BasePath": "_content/Activ.EQM.WebUI",
+      "RelativePath": "js/Script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Script.js"
     },
     {
       "Identity": "D:\\source\\repos\\EQMserme\\EQmNEW\\src\\Activ.EQM\\Activ.EQM.WebUI\\wwwroot\\src\\fonts\\dropways\\dropways.css",

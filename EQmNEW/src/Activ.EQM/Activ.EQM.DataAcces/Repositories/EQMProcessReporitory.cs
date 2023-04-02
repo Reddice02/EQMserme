@@ -40,6 +40,7 @@ namespace Activ.EQM.DataAcces.Repositories
                 throw;
             }
         }
+
         public void Delete(EqmProcess P)
         {
             try
@@ -71,6 +72,8 @@ namespace Activ.EQM.DataAcces.Repositories
                 throw;
             }
         }
+
+
         public EqmProcess GetById(long Id)
         {
             try

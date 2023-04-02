@@ -1,114 +1,116 @@
 ﻿@page
 @model Activ.EQM.WebUI.Pages.detailactionpointModel
 @{
-	ViewData["Title"] = "Detail action point page";
+    ViewData["Title"] = "Detail Action Point page";
 }
 @section scripts {
     <script type="text/javascript" src="~/js/Script.js"></script>
 }
 
-                       
 <!-- Default Basic Forms Start -->
-				<div class="pd-20 card-box mb-30">
-					<div class="clearfix">
-						<div class="pull-left">
-							<h4 class="text-blue h4">Processus</h4>
-						</div>
-						
-					</div>
-				
-										<form id="form" method="post">
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Plan action</h4>
+        </div>
 
-											<script type="text/javascript">
+    </div>
+    <form>
+        <script>
+            let identifiant = sessionStorage.getItem("detail");
 
-												var identifiant = sessionStorage.getItem("detail");
-												let titre = '';
-												let Description = '';
-												let TurnaroundTimes = 0;
-												let Participants = '';
-												let ThirdPartyProcesses = '';
-												let Manager = '';
-												let Created = '';
+            fetch('http://localhost:5000/ActionPoint/' + identifiant)
+                .then(res => res.json())
+                .then(data => {
+                    var a = `${data.title}`;
+                    var b = `${data.description}`;
+                    var c = `${data.actionPointLevel}`;
+                    var d = `${data.actionPointPriority}`;
+                    var e = `${data.thirdPartyProcessStep}`;
+                    var create = `${data.createBy}`;
 
-												fetch('http://localhost:5000/Process/' + identifiant)
-													.then(res => res.json())
-													.then(data => {
-														console.log(data);
-														console.log(data.title);
-														titre += `${data.title}`;
-														Description += `${data.Description}`;
-														TurnaroundTimes += `${data.TurnaroundTimes}`;
-														Participants += `${data.Participants}`;
-														ThirdPartyProcesses += `${data.ThirdPartyProcesses}`;
-														Manager += `${data.Manager}`;
-														Created += `${data.Created}`;
+                    var auditId = `${data.auditId}`;
+                    var natureId = `${data.natureId}`;
 
-														//console.log(titre);
+                    fetch('http://localhost:5000/ActionPointNature/' + natureId)
+                    .then(res => res.json())
+                    .then(data => {
+                        var naturetitle = `${data.title}`;
+                        document.getElementById("naturepoint").value = naturetitle;
+                    });
 
-														document.getElementById("titre").value = titre;
-														document.getElementById('description').value = Description;
-														document.getElementById('delai').value = TurnaroundTimes;
-														document.getElementById('participant').value = Participants;
-														document.getElementById('processus').value = ThirdPartyProcesses;
-														document.getElementById('manager').value = Manager;
-														document.getElementById('created').value = Created;
+                    fetch('http://localhost:5000/Audit/' + auditId)
+                        .then(res => res.json())
+                        .then(data => {
+                            var audittitle = `${data.title}`;
+                            document.getElementById("audit").value = audittitle;
+                        });
 
-													});
+                    document.getElementById("titre").value = a;
+                    document.getElementById("description").value = b;
+                    document.getElementById("niveau").value = c;
+                    document.getElementById("priorite").value = d;
+                    document.getElementById("thirdPartyProcessStep").value = d;
+                    document.getElementById("created").value = create;
+                });
+        </script>
 
-												//console.log(titre);
-											</script>
-			<div class="form-group row">
-				<label class="col-sm-12 col-md-2 col-form-label">Titre</label>
-				<div class="col-sm-12 col-md-10">
-					<input class="form-control" id="titre" type="text" placeholder="titre">
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-12 col-md-2 col-form-label">Description</label>
-				<div class="col-sm-12 col-md-10">
-					<textarea class="form-control" id="description" rows="4" cols="112"></textarea>
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-12 col-md-2 col-form-label">Niveau</label>
-				<div class="col-sm-12 col-md-10">
-					<input class="form-control" id="niveau" type="text">
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-12 col-md-2 col-form-label">Priorite</label>
-				<div class="col-sm-12 col-md-10">
-					<textarea class="form-control" id="priorite" rows="4" cols="112"></textarea>
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-12 col-md-2 col-form-label">Marche à suivre</label>
-				<div class="col-sm-12 col-md-10">
-					<input type="text" id="marche" class="form-control">
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-12 col-md-2 col-form-label">Cree par</label>
-				<div class="col-sm-12 col-md-10">
-					<input type="text" id="created" class="form-control">
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-12 col-md-2 col-form-label">Date et heure</label>
-				<div class="col-sm-12 col-md-10">
-					<input class="form-control datetimepicker" placeholder="Select Date" type="text">
-				</div>
-			</div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Point Nature</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="naturepoint" type="text">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Audit</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="audit" type="text">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Titre</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="titre" type="text">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Description</label>
+            <div class="col-sm-12 col-md-10">
+                <textarea class="form-control" id="description" rows="4" cols="112"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Niveau</label>
+            <div class="col-sm-12 col-md-10">
+                <input type="text" id="niveau" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Priorité </label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="priorite" type="text">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Etape du processus tiers</label>
+            <div class="col-sm-12 col-md-10">
+                <input type="text" id="thirdPartyProcessStep" class="form-control">
+            </div>
+        </div>
 
-		
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Creer Par</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="created" type="text">
+            </div>
+        </div>
 
-			<div class="text-center">
+        <div class="text-center">
+            <button type="button" onclick="retour('actionpoint');" class="btn btn-danger btn-sm">Retour</button>
+        </div>
 
-        <button type="button" onclick="retour('actionpoint');" class="btn btn-primary btn-sm">Modifier</button>
-                                </div>
-							
-</form>
-							
-						</div>
-					</div>
-				</div>
+    </form>
+</div>
+                           </div>
+                            </div>
+<!-- Default Basic Forms End -->

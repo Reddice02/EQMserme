@@ -58,7 +58,7 @@ namespace Activ.EQM.DataAcces.Repositories
                 throw;
             }
         }
-        public IEnumerable<EqmAudit> GetAll()
+		public IEnumerable<EqmAudit> GetAll()
         {
             try
             {
@@ -71,7 +71,43 @@ namespace Activ.EQM.DataAcces.Repositories
                 throw;
             }
         }
-        public EqmAudit GetById(long Id)
+
+		/*public IEnumerable<EqmTotalAudit> GetAll()
+		{
+			try
+			{
+				var query = from c in _dbContext.EqmProcesses
+							join o in _dbContext.EqmAudits on c.ProcessId equals o.ProcessId
+							select new { c, o }; // Sélectionne tous les champs
+
+                EqmTotalAudit eqmTotalAudit = new EqmTotalAudit();
+
+				foreach (var result in query)
+				{
+                    eqmTotalAudit.Report = result.o.Report;
+                    eqmTotalAudit.Reference = result.o.Reference;
+                    eqmTotalAudit.TitleProcess = result.c.Title;
+                    eqmTotalAudit.Title = result.o?.Title;
+                    eqmTotalAudit.ProcessId = result.c.ProcessId;
+                    eqmTotalAudit.StartDateEffective = result.o?.StartDateEffective;
+                    eqmTotalAudit.EndDateEffective = result.o?.EndDateEffective;
+                    eqmTotalAudit.AuditId = result.o.AuditId;
+                    eqmTotalAudit.CreateBy = result.o?.CreateBy;
+                    eqmTotalAudit.Created = result.o.Created;
+                    eqmTotalAudit.Description = result.o?.Description;
+                    eqmTotalAudit.StartDateExpected = result.o?.StartDateExpected;
+                    eqmTotalAudit.EndDateExpected = result.o?.EndDateExpected;
+				}
+
+                return eqmTotalAudit;
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}*/
+
+		public EqmAudit GetById(long Id)
         {
             try
             {

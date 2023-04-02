@@ -35,15 +35,22 @@
 
             console.log(data);
 
-            fetch('http://localhost:5000/Process/'+ identifiant, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-            alert("Enregistrement reussi !");
-            location.replace('https://localhost:7135/processus');
+            let choix = confirm('Voulez vous vraiment modifier cette action point nature ?');
+            if (choix) {
+                fetch('http://localhost:5000/Process/' + identifiant, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                alert("Modification reussi !");
+                location.replace('https://localhost:7135/processus');
+            }
+            else {
+                alert("Modification annulée !");
+                location.replace('https://localhost:7135/processus');
+            }
 
         }
 
@@ -117,7 +124,6 @@
             </div>
 
             <div class="text-center">
-              
                 <button type="button" onclick="modifier();" class="btn btn-primary btn-sm">Modifier</button>
             </div>
 

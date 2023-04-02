@@ -16,12 +16,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\source\repos\EQMserme\EQmNEW\src\Activ.EQM\Activ.EQM.WebUI
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/source/repos/EQMserme/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/actionplan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWN0aW9ucGxhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/source/repos/EQMserme/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/actionpoint.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWN0aW9ucG9pbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/source/repos/EQMserme/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/afficherrapport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWZmaWNoZXJyYXBwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/repos/EQMserme/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/ajoutactionplan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWpvdXRhY3Rpb25wbGFuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/source/repos/EQMserme/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/ajoutactionpoint.cshtml]
@@ -52,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcY2FsZW5kYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/source/repos/EQMserme/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/detailactionplan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZGV0YWlsYWN0aW9ucGxhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/source/repos/EQMserme/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/detailactionpoint.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZGV0YWlsYWN0aW9ucG9pbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,6 +78,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/source/repos/EQMserme/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/detailprocessus.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZGV0YWlscHJvY2Vzc3VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/repos/EQMserme/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/editactionplan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZWRpdGFjdGlvbnBsYW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/source/repos/EQMserme/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/editactionpoint.cshtml]

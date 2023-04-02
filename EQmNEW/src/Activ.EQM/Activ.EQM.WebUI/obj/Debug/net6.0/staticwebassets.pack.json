@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\source\\repos\\EQMserme\\EQmNEW\\src\\Activ.EQM\\Activ.EQM.WebUI\\wwwroot\\js\\Script.js",
+      "PackagePath": "staticwebassets\\js\\Script.js"
+    },
+    {
       "Id": "D:\\source\\repos\\EQMserme\\EQmNEW\\src\\Activ.EQM\\Activ.EQM.WebUI\\wwwroot\\src\\fonts\\dropways\\dropways.css",
       "PackagePath": "staticwebassets\\src\\fonts\\dropways\\dropways.css"
     },

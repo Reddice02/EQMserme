@@ -15,35 +15,16 @@
     <script type="text/javascript" src="~/js/Script.js"></script>
 }
 
-<!--<script>
-
-    function modifier(id){
-        sessionStorage.setItem("modif", id);
-        location.replace('https://localhost:7135/editprocessus');
-    }
-
-    function detail(id) {
-        sessionStorage.setItem("detail", id);
-        location.replace('https://localhost:7135/detailprocessus');
-    }
-
-    function supprimer(_url,id){
-        sessionStorage.setItem("supp", id);
-        let choix = confirm("Voulez vous vraiment supprimer cet élement ?");
-
-        console.log(_url,id);
-
-        if (choix) {
-            fetch(_url + "/" + id, {
-                method: 'DELETE'
-            });
-            alert("Cet élément a été supprimé ");
-            location.replace('https://localhost:7135/processus');
-        }
-        else {
-            alert("la suppression a été annulée");
-        }
-    }
+<!--<script type="text/javascript">
+  function exportReportToExcel() {
+    let table = document.getElementsByID("table");
+    TableToExcel.convert(table[0], {
+      name: `file.xlsx`,
+      sheet: {
+        name: 'Sheet 1'
+      }
+    });
+  }
 </script>-->
 
     <div class="page-header">
@@ -55,7 +36,7 @@
                 <nav aria-label="breadcrumb" role="navigation">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Accueil</li>
-                        <li class="breadcrumb-item active" aria-current="page">Creation de processus</li>
+                        <li class="breadcrumb-item active" aria-current="page">Processus</li>
                     </ol>
                 </nav>
             </div>
@@ -71,11 +52,12 @@
     </div>
     <div class="card-box mb-30">
         <div class="pd-20">
-            <h4 class="text-blue h4">Processus</h4>
+            <h4 class="text-blue h4">Processus</h4><br/>
+        <!--<button class="btn btn-light" id="exporter" onclick="exportReportToExcel()">Exporter</button>-->
            
         </div>
         <div class="pb-20">
-            <table class="table hover multiple-select-row data-table-export nowrap">
+            <table class="table" id="table">
                 <thead>
 						<tr>
                             <th class="table-plus datatable-nosort">Titre</th>

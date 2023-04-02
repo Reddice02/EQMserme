@@ -4,6 +4,9 @@
     ViewData["Title"] = "Audit page";
 }
 
+@section scripts {
+    <script type="text/javascript" src="~/js/Script.js"></script>
+}
 
 <div class="page-header">
     <div class="row">
@@ -13,16 +16,13 @@
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">Accueil</li>
-                    <li class="breadcrumb-item active" aria-current="page">Realisation audit</li>
+                    <li class="breadcrumb-item active" aria-current="page">Audit</li>
                 </ol>
             </nav>
         </div>
         <div class="col-md-6 col-sm-12 text-right">
             <div class="dropdown">
-                <a asp-area="" asp-page="/ajoutaudit" class="btn btn-primary btn-sm" function=javascript:; role="button">
-                    Ajouter
-                </a>
-
+                <a asp-area="" asp-page="/ajoutaudit" class="btn btn-primary btn-sm" function=javascript:; role="button"> Ajouter</a>
             </div>
         </div>
     </div>
@@ -32,74 +32,32 @@
         <h4 class="text-blue h4">Audit</h4>
     </div>
     <div class="pb-20">
-        <table class="table hover multiple-select-row data-table-export nowrap">
+        <table class="table">
             <thead>
                 <tr>
                     <th class="table-plus datatable-nosort">Titre</th>
                     <th>Description</th>
                     <th>Reference</th>
-                    <th>Processus</th>
-                    <th>Date de creation</th>
-                    <th>Action</th>
+                    <!--<th>Processus</th>-->
+                    <th>Date debut effective</th>
+                    <th>Date de fin effective</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="corps">
                 <script type="text/javascript">
                     let infos = '';
-                    let titre = '';
-                    let processus = '';
-
-                    function process(_url, id) {
-                        fetch(_url)
-                            .then(res => res.json())
-                            .then(data => {
-                                console.log(data);
-                                for (let item1 of data) {
-                                    processus += item1.title;
-                                }
-                            })
-                    }
 
                     fetch('http://localhost:5000/Audit')
                         .then(res => res.json())
                         .then(data => {
                             console.log(data);
                             for (let item of data) {
-                                //let result = afficherTitreProcessus(item.processId);
-                                //console.log(result);
-
-                                //process('http://localhost:5000/Process/', item.processId)
-
-                                //infos += `<tr><td>${result}</td></tr>`;
-                                /*fetch('http://localhost:5000/Process/' + item.auditId)
-                                    .then(res => res.json())
-                                    .then(data => {
-                                        console.log(data);
-                                        //titre += data.title;
-                                        //return titre;
-                                        for (let item1 of data) {
-                                            infos += `<tr><td>${item.title}</td><td>${item.description}</td><td>${item.reference}</td><td>${item1.title}</td><td>${result}</td><td>${item.created}</td><td><button attr.data-value=${item.auditId} class="btn btn-light">Détail</button>&nbsp;<button class="btn btn-warning" attr.data-value=${item.auditId}>Modifier</button>&nbsp;<button class="btn btn-danger" attr.data-value=${item.auditId}>Supprimer</button></td></tr>`;
-                                            //processus += item1.title;
-                                        }
-                                    });*/
-
-                                //infos += `<tr><td>${item.title}</td><td>${item.description}</td><td>${item.reference}</td><td>${item.EqmProcess.title}</td><td>${result}</td><td>${item.created}</td><td><button attr.data-value=${item.auditId} class="btn btn-light">Détail</button>&nbsp;<button class="btn btn-warning" attr.data-value=${item.auditId}>Modifier</button>&nbsp;<button class="btn btn-danger" attr.data-value=${item.auditId}>Supprimer</button></td></tr>`;
+                                infos += `<tr><td>${item.title}</td><td>${item.description}</td><td>${item.reference}</td><td>${item.startDateEffective}</td><td>${item.endDateEffective}</td><td><button Onclick="detail(${item.auditId},'detailaudit')" class="btn btn-light">Détail</button>&nbsp;<button class="btn btn-warning" Onclick="modifier(${item.auditId},'editaudit')">Modifier</button>&nbsp;<button class="btn btn-danger" Onclick="supprimer('http://localhost:5000/Audit',${item.auditId},'audit1')">Supprimer</button></td></tr>`;
                             }
                             document.getElementById('corps').innerHTML = infos;
-                            place.innerHTML = infos;
+                            //place.innerHTML = infos;
                         });
-
-                    /*function afficherTitreProcessus(id) {
-
-                        fetch('http://localhost:5000/Process/'+id)
-                            .then(res => res.json())
-                            .then(data => {
-                                console.log(data);
-                                titre += data.title;
-                                //return titre;
-                            });
-                            console.log(titre);
-                    }*/
 
                 </script>
 
